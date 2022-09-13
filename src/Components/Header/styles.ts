@@ -5,5 +5,6 @@ export const HeaderContainer = styled.header`
 
   img {
     width: 100%;
+    z-index: 0;
   }
 `
