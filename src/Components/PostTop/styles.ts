@@ -4,6 +4,7 @@ export const PostTopContainer = styled.div`
   padding: 2rem;
   background: black;
   border-radius: 10px;
+  margin-bottom: 0.5rem;
 
   h2 {
     margin-bottom: 0.5rem;
