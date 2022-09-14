@@ -1,5 +1,7 @@
+import { PostTop } from "../../Components/PostTop";
+
 export function Post() {
   return (
-    <h1>Post</h1>
+    <PostTop />
   )
 }
