@@ -1,15 +1,21 @@
 import { CardContainer, CardHeader } from "./styles";
 
-export function IssueCard() {
+interface IssuesProps {
+  title: string;
+  updated_at: string;
+  body: string;
+}
+
+export function IssueCard({ title, updated_at, body }: IssuesProps) {
   return (
     <CardContainer>
       <CardHeader>
-        <h3>JavaScript data types and data structures</h3>
-        <span>Há 1 dia</span>
+        <h3>{title}</h3>
+        <span>{updated_at}</span>
       </CardHeader>
 
       <div>
-        Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in 
+        {body}
       </div>
     </CardContainer>
   )
