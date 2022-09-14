@@ -1,34 +1,60 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthorBody, AuthorContainer, AuthorFooter, AuthorHeader, Bio, IconContainer, IndicatorWrap } from "./styles";
 
+
+interface authorDataProps {
+  name?: string;
+  html_url?: string;
+  bio?: string;
+  login?: string;
+  company?: string;
+  followers?: number;
+}
+
 export function Author() {
+
+  const [authorData, setAuthorData] = useState<authorDataProps>({});
+
+  async function loadAuthorData() {
+    const response = await fetch("https://api.github.com/users/guirecordon");
+    const data = await response.json()
+
+    setAuthorData(data)
+  }
+
+    useEffect(() => {
+      loadAuthorData();
+    }, [])
+
+
   return (
     <AuthorContainer>
       <img src="https://github.com/guirecordon.png" alt="" />
       <AuthorBody>
         <div>
           <AuthorHeader>
-            <h3>Gui Recordon</h3>
-            <NavLink to="https://github.com/guirecordon">
+            <h3>{authorData.name}</h3>
+            <Link to="https://github.com/guirecordon">
               <img src="src/assets/github.svg" alt="link to github page" />
-            </NavLink>
+            </Link>
           </AuthorHeader>
           <Bio>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat pulvinar vel mass.
+            {authorData.bio}
           </Bio>
         </div>
         <AuthorFooter>
           <IndicatorWrap>
             <IconContainer><img src="src/assets/github-icon.svg" alt="github icon" /></IconContainer>
-            <p>guirecordon</p>
+            <p>{authorData.login}</p>
           </IndicatorWrap>          
           <IndicatorWrap>
             <IconContainer><img src="src/assets/company-icon.svg" alt="company icon" /></IconContainer>
-            <p>WaffleStack</p>
+            <p>{authorData.company}</p>
           </IndicatorWrap>
           <IndicatorWrap>
             <IconContainer><img src="src/assets/followers-icon.svg" alt="" /></IconContainer>
-            <p>32 seguidores</p>
+            <p>{authorData.followers} seguidores</p>
           </IndicatorWrap>
         </AuthorFooter>
       </AuthorBody>

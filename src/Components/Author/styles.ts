@@ -16,12 +16,6 @@ export const AuthorContainer = styled.div`
   }
 `
 
-export const AuthorBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
-
 export const AuthorHeader = styled.header`
   display: flex;
   justify-content: space-between;
@@ -37,6 +31,13 @@ export const AuthorHeader = styled.header`
   img {
     height: 19px;
   }
+`
+
+export const AuthorBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
 `
 
 export const Bio = styled.div`
