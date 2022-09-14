@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const PostTopContainer = styled.div`
   padding: 2rem;
-  background: black;
+  background-color: ${ props => props.theme["base-profile"] };
   border-radius: 10px;
   margin-bottom: 0.5rem;
 

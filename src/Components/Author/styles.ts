@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const AuthorContainer = styled.div`
+  z-index: 100000;
   display: flex;
   gap: 2rem;
 
-  background: black;
-  /* background: ${ props => props.theme["base-profile"] }; */
+  background: ${ props => props.theme["base-profile"] };
   border-radius: 10px;
   padding: 2rem 2.5rem;
 

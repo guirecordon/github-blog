@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LayoutContainer = styled.main`
-  margin: -85px auto 0 auto;
+  margin: -85px auto 234px auto;
   max-width: 54rem;
-  z-index: 300;
+  z-index: 3000000;
 `
