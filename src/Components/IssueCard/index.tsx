@@ -18,6 +18,8 @@ export function IssueCard({ title, updated_at, body }: IssuesProps) {
     addSuffix: true,
   })
 
+  const fragment = body.substring(0, 176) + "...";
+
   return (
     <CardContainer>
       <CardHeader>
@@ -26,7 +28,7 @@ export function IssueCard({ title, updated_at, body }: IssuesProps) {
       </CardHeader>
 
       <div>
-        {body}
+        {fragment}
       </div>
     </CardContainer>
   )
