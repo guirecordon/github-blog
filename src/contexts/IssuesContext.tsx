@@ -1,10 +1,11 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
+import { api } from "../lib/axios";
 
 interface Issue {
-  title?: string;
-  body?: string;
-  number?: number;
-  updated_at?: string;
+  title: string;
+  body: string;
+  number: number;
+  updated_at: string;
 }
 
 interface IssuesContextType {
@@ -22,16 +23,9 @@ export function IssuesProvider({ children }: IssuesProviderProps) {
   const [issues, setIssues] = useState<Issue[]>([])
   
   async function fetchIssues(query: string = "") {
-    let url = new URL(`https://api.github.com/search/issues?q=repo:guirecordon/github-blog%20${query}`)
+    const response = await api.get(`/search/issues?q=${query}%20repo:guirecordon/github-blog`)
 
-    const response = await fetch(url);
-    const data = await response.json();
-
-    const filteredData = data.items;
-
-    console.log(filteredData)
-
-    setIssues(filteredData);
+    setIssues(response.data.items);
   }
   
   useEffect(() => {
