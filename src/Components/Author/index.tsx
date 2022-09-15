@@ -35,9 +35,9 @@ export function Author() {
         <div>
           <AuthorHeader>
             <h3>{authorData.name}</h3>
-            <Link to="https://github.com/guirecordon">
+            <a href="https://github.com/guirecordon" target="_blank">
               <img src="src/assets/github.svg" alt="link to github page" />
-            </Link>
+            </a>
           </AuthorHeader>
           <Bio>
             {authorData.bio}
