@@ -1,6 +1,5 @@
 import { createContext, ReactNode, useEffect, useState } from "react";
 
-
 interface Issue {
   title: string;
   body: string;
@@ -22,7 +21,7 @@ export function IssuesProvider({ children }: IssuesProviderProps) {
   const [issues, setIssues] = useState<Issue[]>([])
   
   async function loadIssues() {
-    const response = await fetch("https://api.github.com/repos/guirecordon/github-blog/issues/");
+    const response = await fetch("https://api.github.com/repos/guirecordon/github-blog/issues");
     const data = await response.json()
 
     setIssues(data);
