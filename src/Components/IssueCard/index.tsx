@@ -3,10 +3,10 @@ import ptBR from 'date-fns/locale/pt-BR'
 import { CardContainer, CardHeader } from "./styles";
 
 interface IssuesProps {
-  title: string;
-  body: string;
-  number: number;
-  updated_at: string;
+  title?: string;
+  body?: string;
+  number?: number;
+  updated_at?: string;
 }
 
 export function IssueCard({ title, updated_at, body }: IssuesProps) {

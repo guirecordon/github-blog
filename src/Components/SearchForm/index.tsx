@@ -1,11 +1,19 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { IssuesContext } from "../../contexts/IssuesContext";
 import { SearchFormContainer, SearchHeader } from "./styles";
 
 export function SearchForm() {
 
-  const { register, watch } = useForm()
+  const { fetchIssues } = useContext(IssuesContext)
 
-  console.log(watch('query', ''));
+  const { register, handleSubmit, watch } = useForm()
+
+  const queryText = watch('query', '');
+
+  function handleQuerySearch() {
+    fetchIssues(queryText);
+  }
 
   return (
     <SearchFormContainer>
@@ -13,7 +21,7 @@ export function SearchForm() {
         <h3>Publicações</h3>
         <p>6 publicações</p>
       </SearchHeader>
-      <form>
+      <form onSubmit={handleSubmit(handleQuerySearch)}>
         <input 
           type="text" 
           placeholder="Buscar conteúdo" 
