@@ -19,6 +19,7 @@ export const CardHeader = styled.header`
     color: ${ props => props.theme["base-title"] };
     margin-bottom: 1.25rem;
     flex: 1;
+    cursor: pointer;
   }
 `
 

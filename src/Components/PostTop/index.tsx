@@ -1,7 +1,34 @@
 import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
+import { useEffect, useState } from 'react';
+import { api } from '../../lib/axios'
 import { BadgesWrap, HeaderLeftContainer, HeaderRightContainer, PostFooter, PostHeader, PostTopContainer } from './styles'
 
+interface issuePage {
+  title: string;
+  html_url: string;
+  user: {
+    login: string;
+  }
+  created_at: string;
+  comments: number;
+}
+
 export function PostTop() {
+  const [issuePage, setIssuePage] = useState<issuePage>({} as issuePage)
+
+  const issueId = 1;
+
+  async function loadIssue() {
+    const response = await api.get(`repos/guirecordon/github-blog/issues/${issueId}`)
+    setIssuePage(response.data)
+  }
+
+  useEffect(() => {
+    loadIssue();
+  }, [])
+
+  console.log(issuePage);
+
   return (
     <PostTopContainer>
       <PostHeader>
@@ -15,7 +42,7 @@ export function PostTop() {
         </HeaderRightContainer>
       </PostHeader>
       <h2>
-        JavaScript data types and data structures
+        {issuePage.title}
       </h2>
       <PostFooter>
         <BadgesWrap>
@@ -28,7 +55,7 @@ export function PostTop() {
         </BadgesWrap>
         <BadgesWrap>
           <img src="src/assets/comments-icon.svg" />
-          <p>5 comentários</p>
+          <p>{issuePage.comments} comentários</p>
         </BadgesWrap>
       </PostFooter>
     </PostTopContainer>
