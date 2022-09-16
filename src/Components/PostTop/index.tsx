@@ -1,5 +1,6 @@
 import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
 import { useContext, useEffect} from 'react';
+import { NavLink } from 'react-router-dom';
 import { IssuesContext } from '../../contexts/IssuesContext';
 import { dateRelativeToNow } from '../../utils/formatter';
 import { BadgesWrap, HeaderLeftContainer, HeaderRightContainer, PostFooter, PostHeader, PostTopContainer } from './styles'
@@ -19,11 +20,13 @@ export function PostTop() {
   return (
     <PostTopContainer>
       <PostHeader>
-        <HeaderLeftContainer>
-          <CaretLeft size={16} color="#3294F8" weight="bold" />
-          <span>voltar</span>
-        </HeaderLeftContainer>
-        <HeaderRightContainer>
+        <NavLink to="/">
+          <HeaderLeftContainer> 
+            <CaretLeft size={16} color="#3294F8" weight="bold" />
+            <span>voltar</span>
+          </HeaderLeftContainer>
+        </NavLink>
+        <HeaderRightContainer href={issuePage.html_url} target="_blank">
           <span>ver no github</span>
           <ArrowSquareOut size={16} color="#3294F8" weight="fill" />
         </HeaderRightContainer>

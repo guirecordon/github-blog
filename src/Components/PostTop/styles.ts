@@ -33,7 +33,7 @@ export const HeaderLeftContainer = styled.div`
   gap: 0.5rem;
 `
 
-export const HeaderRightContainer = styled.div`
+export const HeaderRightContainer = styled.a`
   display: flex;
   justify-content: space-between;
   align-items: center;
