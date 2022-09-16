@@ -1,27 +1,11 @@
 import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { IssuesContext } from '../../contexts/IssuesContext';
 import { api } from '../../lib/axios'
 import { BadgesWrap, HeaderLeftContainer, HeaderRightContainer, PostFooter, PostHeader, PostTopContainer } from './styles'
 
-interface issuePage {
-  title: string;
-  html_url: string;
-  user: {
-    login: string;
-  }
-  created_at: string;
-  comments: number;
-}
-
 export function PostTop() {
-  const [issuePage, setIssuePage] = useState<issuePage>({} as issuePage)
-
-  const issueId = 1;
-
-  async function loadIssue() {
-    const response = await api.get(`repos/guirecordon/github-blog/issues/${issueId}`)
-    setIssuePage(response.data)
-  }
+  const { loadIssue, issuePage } = useContext(IssuesContext)
 
   useEffect(() => {
     loadIssue();
@@ -47,11 +31,11 @@ export function PostTop() {
       <PostFooter>
         <BadgesWrap>
           <img src="src/assets/github-icon.svg" />
-          <p>guirecordon</p>
+          <p>{issuePage.user.login}</p>
         </BadgesWrap>
         <BadgesWrap>
           <img src="src/assets/calendar-icon.svg" />
-          <p>Há 1 dia</p>
+          <p>{issuePage.created_at}</p>
         </BadgesWrap>
         <BadgesWrap>
           <img src="src/assets/comments-icon.svg" />
