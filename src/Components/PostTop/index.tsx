@@ -18,9 +18,6 @@ export function PostTop() {
     loadIssue(issueId);
   }, [issueId])
 
-
-  // console.log(issuePage.user.login);
-
   return (
     <PostTopContainer>
       <PostHeader>
@@ -41,7 +38,7 @@ export function PostTop() {
       <PostFooter>
         <IndicatorWrap>
           <IconContainer><img src={githubIcon} /></IconContainer>
-          {/* <p>{issuePage.user.login}</p> */}
+          <p>{issuePage.user.login}</p>
         </IndicatorWrap>
         <IndicatorWrap>
           <IconContainer><img src={calendarIcon} /></IconContainer>
