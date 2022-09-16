@@ -21,6 +21,7 @@ interface IssuesProviderProps {
 
 interface issuePage {
   title: string;
+  body: string;
   html_url: string;
   user: {
     login: string;

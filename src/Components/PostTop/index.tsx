@@ -31,7 +31,7 @@ export function PostTop() {
       <PostFooter>
         <BadgesWrap>
           <img src="src/assets/github-icon.svg" />
-          <p>{issuePage.user.login}</p>
+          {/* <p>{issuePage.user.login}</p> */}
         </BadgesWrap>
         <BadgesWrap>
           <img src="src/assets/calendar-icon.svg" />
