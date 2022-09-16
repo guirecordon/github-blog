@@ -7,11 +7,11 @@ import { BadgesWrap, HeaderLeftContainer, HeaderRightContainer, PostFooter, Post
 export function PostTop() {
   const { loadIssue, issuePage } = useContext(IssuesContext)
 
-  useEffect(() => {
-    loadIssue();
-  }, [])
+  const issueId = Number(location.pathname.slice(-1));
 
-  console.log(issuePage);
+  useEffect(() => {
+    loadIssue(issueId);
+  }, [issueId])
 
   return (
     <PostTopContainer>

@@ -11,7 +11,7 @@ interface Issue {
 interface IssuesContextType {
   issues: Issue[]
   fetchIssues: (query?: string) => Promise<void>;
-  loadIssue: () => Promise<void>;
+  loadIssue: (issueId: number) => Promise<void>;
   issuePage: issuePage;
 }
 
@@ -43,9 +43,7 @@ export function IssuesProvider({ children }: IssuesProviderProps) {
 
   const [issuePage, setIssuePage] = useState<issuePage>({} as issuePage)
 
-  const issueId = 1;
-
-  async function loadIssue() {
+  async function loadIssue(issueId: number) {
     const response = await api.get(`repos/guirecordon/github-blog/issues/${issueId}`)
     setIssuePage(response.data)
   }
