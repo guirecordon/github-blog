@@ -14,6 +14,8 @@ export function PostTop() {
   }, [issueId])
 
 
+  // console.log(issuePage.user.login);
+
   return (
     <PostTopContainer>
       <PostHeader>
@@ -36,8 +38,6 @@ export function PostTop() {
         </BadgesWrap>
         <BadgesWrap>
           <img src="src/assets/calendar-icon.svg" />
-
-
           <p>{relativeDate}</p>
         </BadgesWrap>
         <BadgesWrap>
