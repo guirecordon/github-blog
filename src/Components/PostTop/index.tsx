@@ -3,7 +3,11 @@ import { useContext, useEffect} from 'react';
 import { NavLink } from 'react-router-dom';
 import { IssuesContext } from '../../contexts/IssuesContext';
 import { dateRelativeToNow } from '../../utils/formatter';
-import { BadgesWrap, HeaderLeftContainer, HeaderRightContainer, PostFooter, PostHeader, PostTopContainer } from './styles'
+import { IconContainer, IndicatorWrap } from '../Author/styles';
+import { HeaderLeftContainer, HeaderRightContainer, PostFooter, PostHeader, PostTopContainer } from './styles'
+import githubIcon from '../../assets/github-icon.svg'
+import calendarIcon from '../../assets/calendar-icon.svg'
+import commentsIcon from '../../assets/comments-icon.svg'
 
 export function PostTop() {
   const { loadIssue, issuePage } = useContext(IssuesContext)
@@ -35,18 +39,18 @@ export function PostTop() {
         {issuePage.title}
       </h2>
       <PostFooter>
-        <BadgesWrap>
-          <img src="src/assets/github-icon.svg" />
+        <IndicatorWrap>
+          <IconContainer><img src={githubIcon} /></IconContainer>
           {/* <p>{issuePage.user.login}</p> */}
-        </BadgesWrap>
-        <BadgesWrap>
-          <img src="src/assets/calendar-icon.svg" />
+        </IndicatorWrap>
+        <IndicatorWrap>
+          <IconContainer><img src={calendarIcon} /></IconContainer>
           <p>{relativeDate}</p>
-        </BadgesWrap>
-        <BadgesWrap>
-          <img src="src/assets/comments-icon.svg" />
+        </IndicatorWrap>
+        <IndicatorWrap>
+          <IconContainer><img src={commentsIcon} /></IconContainer>
           <p>{issuePage.comments} comentários</p>
-        </BadgesWrap>
+        </IndicatorWrap>
       </PostFooter>
     </PostTopContainer>
   )

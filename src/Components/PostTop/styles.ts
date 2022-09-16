@@ -45,9 +45,9 @@ export const PostFooter = styled.footer`
   gap: 2rem;
 `
 
-export const BadgesWrap = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: ${ props => props.theme["base-span"] };
-`
+// export const BadgesWrap = styled.div`
+//   display: flex;
+//   align-items: center;
+//   gap: 0.5rem;
+//   color: ${ props => props.theme["base-span"] };
+// `
