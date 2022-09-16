@@ -1,17 +1,18 @@
 import { ArrowSquareOut, CaretLeft } from 'phosphor-react'
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect} from 'react';
 import { IssuesContext } from '../../contexts/IssuesContext';
-import { api } from '../../lib/axios'
+import { dateRelativeToNow } from '../../utils/formatter';
 import { BadgesWrap, HeaderLeftContainer, HeaderRightContainer, PostFooter, PostHeader, PostTopContainer } from './styles'
 
 export function PostTop() {
   const { loadIssue, issuePage } = useContext(IssuesContext)
-
   const issueId = Number(location.pathname.slice(-1));
+  const relativeDate = dateRelativeToNow(issuePage.created_at);
 
   useEffect(() => {
     loadIssue(issueId);
   }, [issueId])
+
 
   return (
     <PostTopContainer>
@@ -35,7 +36,9 @@ export function PostTop() {
         </BadgesWrap>
         <BadgesWrap>
           <img src="src/assets/calendar-icon.svg" />
-          <p>{issuePage.created_at}</p>
+
+
+          <p>{relativeDate}</p>
         </BadgesWrap>
         <BadgesWrap>
           <img src="src/assets/comments-icon.svg" />
