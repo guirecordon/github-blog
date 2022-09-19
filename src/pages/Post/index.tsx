@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { PostTop } from "../../Components/PostTop";
 import { IssuesContext } from "../../contexts/IssuesContext";
 import { PostBody } from "./styles";
+import ReactMarkdown from 'react-markdown';
 
 export function Post() {
   const { issuePage } = useContext(IssuesContext)
@@ -12,9 +13,7 @@ export function Post() {
     <>
       <PostTop />
       <PostBody>
-        <p>
-          {body}
-        </p>
+        <ReactMarkdown children={body} />
       </PostBody>
     </>
   )

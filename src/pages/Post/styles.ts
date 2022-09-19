@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const PostBody = styled.div`
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem 2rem;
+  margin-bottom: 8rem;
 
   h2 {
-    color: ${ props => props.theme.blue };
-    font-size: 1rem;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    color: ${props => props.theme.blue};
   }
 
-  p {
-    margin-bottom: 1rem;
+  li {
+    width: 100%;
+  }
+
+  a{
+    color: ${ props => props.theme.blue };
   }
 `

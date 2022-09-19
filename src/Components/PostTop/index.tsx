@@ -38,7 +38,7 @@ export function PostTop() {
       <PostFooter>
         <IndicatorWrap>
           <IconContainer><img src={githubIcon} /></IconContainer>
-          <p>{issuePage.user.login}</p>
+          {issuePage.user.login? <p>{issuePage.user.login}</p> : <p>guirecordonildo</p>}
         </IndicatorWrap>
         <IndicatorWrap>
           <IconContainer><img src={calendarIcon} /></IconContainer>
